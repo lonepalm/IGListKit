@@ -21,17 +21,20 @@ let package = Package(
     targets: [
         .target(
             name: "IGListDiffKit",
-            path: "spm/Sources/IGListDiffKit"
+            path: "spm/Sources/IGListDiffKit",
+            cSettings: [.define("NS_BLOCK_ASSERTIONS", to: "1", .when(configuration: .release))]
         ),
         .target(
             name: "IGListKit",
             dependencies: ["IGListDiffKit"],
-            path: "spm/Sources/IGListKit"
+            path: "spm/Sources/IGListKit",
+            cSettings: [.define("NS_BLOCK_ASSERTIONS", to: "1", .when(configuration: .release))]
         ),
         .target(
             name: "IGListSwiftKit",
             dependencies: ["IGListKit"],
-            path: "Source/IGListSwiftKit"
+            path: "Source/IGListSwiftKit",
+            cSettings: [.define("NS_BLOCK_ASSERTIONS", to: "1", .when(configuration: .release))]
         ),
     ],
     cLanguageStandard: .c11,
