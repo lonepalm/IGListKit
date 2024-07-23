@@ -14,13 +14,13 @@ final class ExpandableSectionController: ListSectionController {
     private var expanded = false
     private var object: String?
 
-    override func sizeForItem(at index: Int) -> CGSize {
+    override func sizeForItem(at index: Int, collectionContext: any ListCollectionContext) -> CGSize {
         let width = collectionContext!.containerSize.width
         let height = expanded ? LabelCell.textHeight(object ?? "", width: width) : LabelCell.singleLineHeight
         return CGSize(width: width, height: height)
     }
 
-    override func cellForItem(at index: Int) -> UICollectionViewCell {
+    override func cellForItem(at index: Int, collectionContext: any ListCollectionContext) -> UICollectionViewCell {
         let cell: LabelCell = collectionContext.dequeueReusableCell(for: self, at: index)
         cell.text = object
         return cell

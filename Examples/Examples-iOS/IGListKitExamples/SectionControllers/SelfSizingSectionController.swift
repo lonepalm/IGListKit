@@ -24,11 +24,11 @@ final class SelfSizingSectionController: ListSectionController {
         return model.options.count
     }
 
-    override func sizeForItem(at index: Int) -> CGSize {
+    override func sizeForItem(at index: Int, collectionContext: any ListCollectionContext) -> CGSize {
         return CGSize(width: collectionContext!.containerSize.width, height: 55)
     }
 
-    override func cellForItem(at index: Int) -> UICollectionViewCell {
+    override func cellForItem(at index: Int, collectionContext: any ListCollectionContext) -> UICollectionViewCell {
         let text = model.options[index]
         let cell: UICollectionViewCell
         switch model.type {

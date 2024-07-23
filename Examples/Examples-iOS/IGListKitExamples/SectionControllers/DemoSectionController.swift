@@ -46,17 +46,14 @@ extension DemoItem: ListDiffable {
 final class DemoSectionController: ListSectionController {
     private var object: DemoItem?
 
-    override func sizeForItem(at index: Int) -> CGSize {
-        guard let context = collectionContext else {
-            return .zero
-        }
+    override func sizeForItem(at index: Int, collectionContext: any ListCollectionContext) -> CGSize {
         let inset = context.containerInset
         let safeArea = viewController?.view.safeAreaInsets ?? .zero
         let width = context.containerSize.width - (inset.left + inset.right + safeArea.left + safeArea.right)
         return CGSize(width: width, height: 55)
     }
 
-    override func cellForItem(at index: Int) -> UICollectionViewCell {
+    override func cellForItem(at index: Int/*, collectionContext: any ListCollectionContext*/) -> UICollectionViewCell {
         let cell: LabelCell = collectionContext.dequeueReusableCell(for: self, at: index)
         cell.text = object?.name
         cell.imageName = object?.imageName

@@ -19,11 +19,11 @@ final class HorizontalSectionController: ListSectionController, ListAdapterDataS
         return adapter
     }()
 
-    override func sizeForItem(at index: Int) -> CGSize {
+    override func sizeForItem(at index: Int, collectionContext: any ListCollectionContext) -> CGSize {
         return CGSize(width: collectionContext!.containerSize.width, height: 100)
     }
 
-    override func cellForItem(at index: Int) -> UICollectionViewCell {
+    override func cellForItem(at index: Int, collectionContext: any ListCollectionContext) -> UICollectionViewCell {
         let cell: EmbeddedCollectionViewCell = collectionContext.dequeueReusableCell(for: self, at: index)
         adapter.collectionView = cell.collectionView
         return cell

@@ -21,7 +21,7 @@ final class CarouselSectionController: ListSectionController {
         return 1
     }
 
-    override func sizeForItem(at index: Int) -> CGSize {
+    override func sizeForItem(at index: Int, collectionContext: any ListCollectionContext) -> CGSize {
         let height = collectionContext?.containerSize.height ?? 0
         let aspectRatio: CGFloat = 0.75 // 3:4
         let width = height * aspectRatio
@@ -29,7 +29,7 @@ final class CarouselSectionController: ListSectionController {
         return CGSize(width: width, height: height)
     }
 
-    override func cellForItem(at index: Int) -> UICollectionViewCell {
+    override func cellForItem(at index: Int, collectionContext: any ListCollectionContext) -> UICollectionViewCell {
         guard let cell = collectionContext?.dequeueReusableCell(withNibName: "CarouselCell",
                                                                 bundle: nil,
                                                                 for: self,

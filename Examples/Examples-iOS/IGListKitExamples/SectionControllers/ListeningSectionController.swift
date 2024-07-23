@@ -23,11 +23,11 @@ final class ListeningSectionController: ListSectionController, IncrementListener
 
     // MARK: ListSectionController Overrides
 
-    override func sizeForItem(at index: Int) -> CGSize {
+    override func sizeForItem(at index: Int, collectionContext: any ListCollectionContext) -> CGSize {
         return CGSize(width: collectionContext!.containerSize.width, height: 55)
     }
 
-    override func cellForItem(at index: Int) -> UICollectionViewCell {
+    override func cellForItem(at index: Int, collectionContext: any ListCollectionContext) -> UICollectionViewCell {
         let cell: LabelCell = collectionContext.dequeueReusableCell(for: self, at: index)
         configureCell(cell: cell)
         return cell

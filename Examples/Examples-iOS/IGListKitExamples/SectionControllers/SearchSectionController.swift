@@ -21,11 +21,11 @@ final class SearchSectionController: ListSectionController, UISearchBarDelegate,
         scrollDelegate = self
     }
 
-    override func sizeForItem(at index: Int) -> CGSize {
+    override func sizeForItem(at index: Int, collectionContext: any ListCollectionContext) -> CGSize {
         return CGSize(width: collectionContext!.containerSize.width, height: 44)
     }
 
-    override func cellForItem(at index: Int) -> UICollectionViewCell {
+    override func cellForItem(at index: Int, collectionContext: any ListCollectionContext) -> UICollectionViewCell {
         let cell: SearchCell = collectionContext.dequeueReusableCell(for: self, at: index)
         cell.searchBar.delegate = self
         return cell
