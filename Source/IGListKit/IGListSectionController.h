@@ -175,7 +175,7 @@ NS_SWIFT_NAME(ListSectionController)
  code is not forced to handle nullability with explicit `as!` or `fatalError`, as using a non-`nil` instance
  of this object is essential for dequeueing cells.
  */
-@property (nonatomic, weak, null_unspecified, readonly) id <IGListCollectionContext> collectionContext;
+@property (nonatomic, weak, nullable, readonly) id <IGListCollectionContext> collectionContext;
 
 /**
  Returns the section within the list for this section controller.
