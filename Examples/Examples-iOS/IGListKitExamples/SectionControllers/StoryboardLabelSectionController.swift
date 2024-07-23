@@ -17,11 +17,11 @@ final class StoryboardLabelSectionController: ListSectionController {
     private var object: Person?
     weak var delegate: StoryboardLabelSectionControllerDelegate?
 
-    override func sizeForItem(at index: Int) -> CGSize {
+    override func sizeForItem(at index: Int, collectionContext: any ListCollectionContext) -> CGSize {
         return CGSize(width: (self.object?.name.count)! * 7, height: (self.object?.name.count)! * 7)
     }
 
-    override func cellForItem(at index: Int) -> UICollectionViewCell {
+    override func cellForItem(at index: Int, collectionContext: any ListCollectionContext) -> UICollectionViewCell {
         let cell: StoryboardCell = collectionContext.dequeueReusableCellFromStoryboard(
             withIdentifier: "cell",
             for: self,

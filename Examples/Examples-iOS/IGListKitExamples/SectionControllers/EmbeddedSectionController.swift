@@ -18,12 +18,12 @@ final class EmbeddedSectionController: ListSectionController {
         self.inset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
     }
 
-    override func sizeForItem(at index: Int) -> CGSize {
+    override func sizeForItem(at index: Int, collectionContext: any ListCollectionContext) -> CGSize {
         let height = collectionContext?.containerSize.height ?? 0
         return CGSize(width: height, height: height)
     }
 
-    override func cellForItem(at index: Int) -> UICollectionViewCell {
+    override func cellForItem(at index: Int, collectionContext: any ListCollectionContext) -> UICollectionViewCell {
         let cell: CenterLabelCell = collectionContext.dequeueReusableCell(for: self, at: index)
         let value = number ?? 0
         cell.text = "\(value + 1)"

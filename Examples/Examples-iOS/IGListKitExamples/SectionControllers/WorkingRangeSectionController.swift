@@ -35,13 +35,13 @@ final class WorkingRangeSectionController: ListSectionController, ListWorkingRan
         return 2
     }
 
-    override func sizeForItem(at index: Int) -> CGSize {
+    override func sizeForItem(at index: Int, collectionContext: any ListCollectionContext) -> CGSize {
         let width: CGFloat = collectionContext?.containerSize.width ?? 0
         let height: CGFloat = CGFloat(index == 0 ? 55 : (self.height ?? 0))
         return CGSize(width: width, height: height)
     }
 
-    override func cellForItem(at index: Int) -> UICollectionViewCell {
+    override func cellForItem(at index: Int, collectionContext: any ListCollectionContext) -> UICollectionViewCell {
         let cellClass: UICollectionViewCell.Type = index == 0 ? LabelCell.self : ImageCell.self
         let cell = collectionContext.dequeueReusableCell(of: cellClass, for: self, at: index)
         if let cell = cell as? LabelCell {

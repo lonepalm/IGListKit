@@ -60,13 +60,13 @@ final class GridSectionController: ListSectionController {
         return object?.itemCount ?? 0
     }
 
-    override func sizeForItem(at index: Int) -> CGSize {
+    override func sizeForItem(at index: Int, collectionContext: any ListCollectionContext) -> CGSize {
         let width = collectionContext?.containerSize.width ?? 0
         let itemSize = floor(width / 4)
         return CGSize(width: itemSize, height: itemSize)
     }
 
-    override func cellForItem(at index: Int) -> UICollectionViewCell {
+    override func cellForItem(at index: Int, collectionContext: any ListCollectionContext) -> UICollectionViewCell {
         let cell: CenterLabelCell = collectionContext.dequeueReusableCell(for: self, at: index)
         cell.text = object?.items[index] ?? "undefined"
         cell.backgroundColor = object?.color
