@@ -17,11 +17,11 @@ final class LabelSectionController: ListSectionController {
         return 1
     }
 
-    override func sizeForItem(at index: Int) -> CGSize {
+    override func sizeForItem(at index: Int, collectionContext: any ListCollectionContext) -> CGSize {
         return CGSize(width: collectionContext!.containerSize.width, height: 55)
     }
 
-    override func cellForItem(at index: Int) -> UICollectionViewCell {
+    override func cellForItem(at index: Int, collectionContext: any ListCollectionContext) -> UICollectionViewCell {
         guard let cell: LabelCell = collectionContext?.dequeueReusableCell(for: self, at: index) else {
             fatalError()
         }

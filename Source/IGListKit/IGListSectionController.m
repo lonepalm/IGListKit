@@ -75,10 +75,18 @@ void IGListSectionControllerPopThread(void) {
 }
 
 - (CGSize)sizeForItemAtIndex:(NSInteger)index {
+    return [self sizeForItemAtIndex:index  collectionContext:self.collectionContext];
+}
+
+- (CGSize)sizeForItemAtIndex:(NSInteger)index collectionContext:(id<IGListCollectionContext>)collectionContext {
     return CGSizeZero;
 }
 
 - (__kindof UICollectionViewCell *)cellForItemAtIndex:(NSInteger)index {
+    return [self cellForItemAtIndex:index collectionContext:self.collectionContext];
+}
+
+- (__kindof UICollectionViewCell *)cellForItemAtIndex:(NSInteger)index collectionContext:(id<IGListCollectionContext>)collectionContext {
     IGFailAssert(@"Section controller %@ must override %s:", self, __PRETTY_FUNCTION__);
     return nil;
 }

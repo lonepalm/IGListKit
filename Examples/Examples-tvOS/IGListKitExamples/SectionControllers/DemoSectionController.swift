@@ -39,12 +39,12 @@ final class DemoSectionController: ListSectionController {
         return 1
     }
 
-    override func sizeForItem(at index: Int) -> CGSize {
+    override func sizeForItem(at index: Int, collectionContext: any ListCollectionContext) -> CGSize {
         let itemWidth = (collectionContext!.containerSize.width / 2) - inset.left
         return CGSize(width: itemWidth, height: 100)
     }
 
-    override func cellForItem(at index: Int) -> UICollectionViewCell {
+    override func cellForItem(at index: Int, collectionContext: any ListCollectionContext) -> UICollectionViewCell {
         guard let cell: DemoCell = collectionContext?.dequeueReusableCell(for: self, at: index) else {
             fatalError()
         }

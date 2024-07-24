@@ -44,7 +44,9 @@ NS_SWIFT_NAME(ListSectionController)
  fixed height-and-width grid. The former will ask each section for a size, and the latter will likely not. The default
  implementation returns size zero. **Calling super is not required.**
  */
-- (CGSize)sizeForItemAtIndex:(NSInteger)index;
+- (CGSize)sizeForItemAtIndex:(NSInteger)index __attribute__((deprecated));
+
+- (CGSize)sizeForItemAtIndex:(NSInteger)index collectionContext:(id<IGListCollectionContext>)collectionContext;
 
 /**
  Return a dequeued cell for a given index.
@@ -62,7 +64,9 @@ NS_SWIFT_NAME(ListSectionController)
  and returned, rather than the existing cell that you may have intended to retrieve. Instead, you can call
  `-cellForItemAtIndex:sectionController:` on `IGListCollectionContext` to obtain active cell references.
  */
-- (__kindof UICollectionViewCell *)cellForItemAtIndex:(NSInteger)index;
+- (__kindof UICollectionViewCell *)cellForItemAtIndex:(NSInteger)index __attribute__((deprecated));
+
+- (__kindof UICollectionViewCell *)cellForItemAtIndex:(NSInteger)index collectionContext:(id<IGListCollectionContext>)collectionContext;
 
 /**
  Updates the section controller to a new object.
@@ -171,7 +175,7 @@ NS_SWIFT_NAME(ListSectionController)
  code is not forced to handle nullability with explicit `as!` or `fatalError`, as using a non-`nil` instance
  of this object is essential for dequeueing cells.
  */
-@property (nonatomic, weak, null_unspecified, readonly) id <IGListCollectionContext> collectionContext;
+@property (nonatomic, weak, nullable, readonly) id <IGListCollectionContext> collectionContext;
 
 /**
  Returns the section within the list for this section controller.

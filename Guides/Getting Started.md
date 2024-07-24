@@ -14,11 +14,11 @@ Take a look at [LabelSectionController](https://raw.githubusercontent.com/Instag
 
 ```swift
 class LabelSectionController: ListSectionController {
-  override func sizeForItem(at index: Int) -> CGSize {
+  override func sizeForItem(at index: Int, collectionContext: any ListCollectionContext) -> CGSize {
     return CGSize(width: collectionContext!.containerSize.width, height: 55)
   }
 
-  override func cellForItem(at index: Int) -> UICollectionViewCell {
+  override func cellForItem(at index: Int, collectionContext: any ListCollectionContext) -> UICollectionViewCell {
     return collectionContext!.dequeueReusableCell(of: MyCell.self, for: self, at: index)
   }
 }

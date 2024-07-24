@@ -46,7 +46,10 @@
 
     // flag that a cell is being dequeued in case it tries to access a cell in the process
     _isDequeuingCell = YES;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     UICollectionViewCell *cell = [sectionController cellForItemAtIndex:indexPath.item];
+#pragma clang diagnostic pop
     _isDequeuingCell = NO;
 
     IGAssert(cell != nil, @"Returned a nil cell at indexPath <%@> from section controller: <%@>", indexPath, sectionController);
