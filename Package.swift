@@ -19,20 +19,20 @@ let package = Package(
         .target(
             name: "IGListDiffKit",
             path: "spm/Sources/IGListDiffKit",
-            publicHeadersPath: "include"
+            publicHeadersPath: "include",
             cSettings: [.define("NS_BLOCK_ASSERTIONS", to: "1", .when(configuration: .release))]
         ),
         .target(
             name: "IGListKit",
             dependencies: ["IGListDiffKit"],
             path: "spm/Sources/IGListKit",
-            publicHeadersPath: "include"
+            publicHeadersPath: "include",
             cSettings: [.define("NS_BLOCK_ASSERTIONS", to: "1", .when(configuration: .release))]
         ),
         .target(
             name: "IGListSwiftKit",
             dependencies: ["IGListKit"],
-            path: "spm/Sources/IGListSwiftKit"
+            path: "spm/Sources/IGListSwiftKit",
             cSettings: [.define("NS_BLOCK_ASSERTIONS", to: "1", .when(configuration: .release))]
         ),
     ],
